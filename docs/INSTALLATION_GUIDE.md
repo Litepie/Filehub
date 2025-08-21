@@ -15,7 +15,7 @@ Before you begin, ensure you have:
 ### 1. Install FileHub Package
 
 ```bash
-composer require litepie/laravel-filehub
+composer require litepie/filehub
 ```
 
 ### 2. Publish and Run Migrations
@@ -31,7 +31,7 @@ php artisan migrate
 Copy the example controller to your project:
 
 ```bash
-cp vendor/litepie/laravel-filehub/examples/FileHubController.php app/Http/Controllers/
+cp vendor/litepie/filehub/examples/FileHubController.php app/Http/Controllers/
 ```
 
 Or create your own based on the example.
@@ -72,7 +72,7 @@ Copy the Vue component to your project:
 mkdir -p resources/js/components
 
 # Copy the Vue component
-cp vendor/litepie/laravel-filehub/resources/js/components/FileHubUploader.vue resources/js/components/
+cp vendor/litepie/filehub/resources/js/components/FileHubUploader.vue resources/js/components/
 ```
 
 #### 3. Register Component
@@ -146,8 +146,8 @@ npm install axios
 mkdir -p src/components
 
 # Copy the React component
-cp vendor/litepie/laravel-filehub/resources/js/components/FileHubUploader.jsx src/components/
-cp vendor/litepie/laravel-filehub/resources/js/components/FileHubUploader.css src/components/
+cp vendor/litepie/filehub/resources/js/components/FileHubUploader.jsx src/components/
+cp vendor/litepie/filehub/resources/js/components/FileHubUploader.css src/components/
 ```
 
 #### 3. Use in Components

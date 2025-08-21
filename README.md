@@ -16,7 +16,7 @@ A modern, secure, and feature-rich file management package for Laravel 11+ appli
 ## Installation
 
 ```bash
-composer require litepie/laravel-filehub
+composer require litepie/filehub
 ```
 
 ## Quick Start
@@ -98,7 +98,7 @@ FileHub now includes beautiful Vue.js and React components for file uploading wi
 
 ```bash
 # Copy components to your project
-cp -r vendor/litepie/laravel-filehub/resources/js/components/ resources/js/
+cp -r vendor/litepie/filehub/resources/js/components/ resources/js/
 ```
 
 ```vue
@@ -123,7 +123,7 @@ cp -r vendor/litepie/laravel-filehub/resources/js/components/ resources/js/
 
 ## Documentation
 
-For full documentation, visit [our documentation site](https://github.com/litepie/laravel-filehub).
+For full documentation, visit [our documentation site](https://github.com/litepie/filehub).
 
 - [Frontend Components Guide](docs/FRONTEND_COMPONENTS.md) - Vue & React components
 - [Installation Guide](docs/INSTALLATION_GUIDE.md) - Step-by-step setup
