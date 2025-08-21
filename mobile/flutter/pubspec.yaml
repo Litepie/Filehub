@@ -1,0 +1,32 @@
+name: filehub_uploader
+description: Flutter component for FileHub Laravel package - Beautiful file upload with drag & drop, reordering, and metadata editing
+version: 1.0.0
+homepage: https://github.com/litepie/laravel-filehub
+
+environment:
+  sdk: '>=2.17.0 <4.0.0'
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  file_picker: ^6.0.0
+  image_picker: ^1.0.0
+  permission_handler: ^11.0.0
+  reorderable_list: ^1.3.0
+  http: ^1.0.0
+  http_parser: ^4.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+topics:
+  - file-upload
+  - laravel
+  - mobile
+  - ui

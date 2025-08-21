@@ -1,0 +1,132 @@
+# IDE and Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.vs/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.directory
+
+# PHP
+/vendor/
+composer.phar
+composer.lock
+.phpunit.result.cache
+phpunit.xml
+.env
+.env.backup
+.env.production
+
+# Laravel specific
+storage/
+bootstrap/cache/
+public/storage
+public/hot
+
+# Testing
+coverage/
+.phpunit.cache
+tests/coverage/
+phpunit.xml.dist
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build outputs
+dist/
+build/
+.rollup.cache/
+.cache/
+
+# Lock files (keep package-lock.json if using npm, yarn.lock if using yarn)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Logs
+logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+*~
+
+# Flutter/Dart (for mobile directory)
+mobile/flutter/.dart_tool/
+mobile/flutter/.packages
+mobile/flutter/.pub-cache/
+mobile/flutter/.pub/
+mobile/flutter/build/
+mobile/flutter/.flutter-plugins
+mobile/flutter/.flutter-plugins-dependencies
+
+# React Native
+mobile/react-native/android/app/build/
+mobile/react-native/ios/build/
+mobile/react-native/ios/Pods/
+mobile/react-native/.expo/
+mobile/react-native/.expo-shared/
+
+# Documentation build
+docs/build/
+docs/.vuepress/dist/
+
+# File uploads and media (for testing)
+public/uploads/
+storage/app/public/uploads/
+storage/app/uploads/
+uploads/
+media/
+files/
+
+# Security files
+*.pem
+*.key
+*.crt
+.env.local
+.env.*.local
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Development tools
+.phpcs.xml
+.php_cs.cache
+.php-cs-fixer.cache
+.php_cs.dist

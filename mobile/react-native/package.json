@@ -1,0 +1,41 @@
+{
+  "name": "@litepie/filehub-react-native",
+  "version": "1.0.0",
+  "description": "React Native component for FileHub Laravel package",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "typescript": "tsc --noEmit"
+  },
+  "keywords": [
+    "react-native",
+    "file-upload",
+    "laravel",
+    "filehub",
+    "mobile"
+  ],
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-native": ">=0.60.0"
+  },
+  "dependencies": {
+    "react-native-document-picker": "^9.0.0",
+    "react-native-image-crop-picker": "^0.40.0",
+    "react-native-draggable-flatlist": "^4.0.0",
+    "react-native-gesture-handler": "^2.12.0",
+    "react-native-fs": "^2.20.0",
+    "react-native-video": "^5.2.1",
+    "react-native-vector-icons": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-native": "^0.72.0",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "*.js",
+    "*.d.ts",
+    "*.tsx",
+    "README.md"
+  ]
+}
