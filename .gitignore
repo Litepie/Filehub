@@ -1,9 +1,29 @@
+# Composer
+/vendor/
+composer.phar
+composer.lock
+
+# Testing
+/tests/coverage/
+.phpunit.result.cache
+.phpunit.cache
+phpunit.xml
+.coverage
+coverage.xml
+*.cover
+
+# Build artifacts
+/build/
+/dist/
+
 # IDE and Editor files
-.vscode/
-.idea/
+/.idea/
+/.vscode/
 *.sublime-project
 *.sublime-workspace
-.vs/
+.project
+.buildpath
+.settings/
 
 # OS generated files
 .DS_Store
@@ -13,120 +33,43 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-.directory
-
-# PHP
-/vendor/
-composer.phar
-composer.lock
-.phpunit.result.cache
-phpunit.xml
-.env
-.env.backup
-.env.production
-
-# Laravel specific
-storage/
-bootstrap/cache/
-public/storage
-public/hot
-
-# Testing
-coverage/
-.phpunit.cache
-tests/coverage/
-phpunit.xml.dist
-
-# Node.js
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-# Build outputs
-dist/
-build/
-.rollup.cache/
-.cache/
-
-# Lock files (keep package-lock.json if using npm, yarn.lock if using yarn)
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
-
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Logs
-logs
-*.log
 
 # Temporary files
-tmp/
-temp/
+*~
+*.bak
 *.tmp
+*.temp
 *.swp
 *.swo
-*~
 
-# Flutter/Dart (for mobile directory)
-mobile/flutter/.dart_tool/
-mobile/flutter/.packages
-mobile/flutter/.pub-cache/
-mobile/flutter/.pub/
-mobile/flutter/build/
-mobile/flutter/.flutter-plugins
-mobile/flutter/.flutter-plugins-dependencies
-
-# React Native
-mobile/react-native/android/app/build/
-mobile/react-native/ios/build/
-mobile/react-native/ios/Pods/
-mobile/react-native/.expo/
-mobile/react-native/.expo-shared/
+# Code quality tools
+/.phpcs.cache
+/.php_cs.cache
+/.php-cs-fixer.cache
+.psalm/
+.phpstan/
 
 # Documentation build
-docs/build/
-docs/.vuepress/dist/
+/docs/_build/
+/docs/html/
+/docs/latex/
 
-# File uploads and media (for testing)
-public/uploads/
-storage/app/public/uploads/
-storage/app/uploads/
-uploads/
-media/
-files/
-
-# Security files
-*.pem
-*.key
-*.crt
+# Package development
+.env
 .env.local
-.env.*.local
+.env.testing
+auth.json
 
-# Backup files
-*.bak
-*.backup
-*.old
+# Node.js (if package uses any JS build tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
 
-# Database
-*.sqlite
-*.sqlite3
-*.db
-
-# Archives
-*.zip
-*.tar.gz
-*.rar
-*.7z
-
-# Development tools
-.phpcs.xml
-.php_cs.cache
-.php-cs-fixer.cache
-.php_cs.dist
+# Flow package specific
+/examples/temp/
+/examples/output/
+/database/database.sqlite
+/database/*.sqlite
+*.log
