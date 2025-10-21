@@ -1,13 +1,22 @@
 {
     "name": "litepie/filehub",
     "description": "Modern Laravel file and media management package with security, performance, and flexibility",
-    "keywords": ["laravel", "file-upload", "media", "images", "attachments", "filehub", "litepie"],
+    "keywords": [
+        "laravel",
+        "file-upload",
+        "media",
+        "images",
+        "attachments",
+        "filehub",
+        "litepie"
+    ],
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Litepie Team",
-            "email": "team@litepie.com"
+            "name": "Lavalite Team",
+            "email": "support@lavalite.org",
+            "homepage": "https://lavalite.org"
         }
     ],
     "require": {

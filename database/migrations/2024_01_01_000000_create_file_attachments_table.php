@@ -10,7 +10,11 @@ return new class extends Migration
     {
         Schema::create('file_attachments', function (Blueprint $table) {
             $table->id();
-            $table->morphs('attachable');
+            
+            // Attachable (polymorphic) - explicitly defined to avoid naming conflicts
+            $table->unsignedBigInteger('attachable_id');
+            $table->string('attachable_type');
+            
             $table->string('collection')->default('default');
             $table->string('filename');
             $table->string('original_filename');
@@ -28,13 +32,17 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->index(['attachable_type', 'attachable_id']);
-            $table->index(['collection']);
-            $table->index(['mime_type']);
-            $table->index(['created_at']);
-            $table->index(['file_hash']);
-            $table->index(['uploaded_by', 'uploaded_by_type']);
-            $table->index(['upload_ip_address']);
+            // Explicit indexes with globally unique names
+            $table->index(['attachable_type', 'attachable_id'], 'file_attachments_attachable_morph_idx');
+            $table->index('collection', 'file_attachments_collection_idx');
+            $table->index('mime_type', 'file_attachments_mime_type_idx');
+            $table->index('created_at', 'file_attachments_created_at_idx');
+            $table->index('file_hash', 'file_attachments_file_hash_idx');
+            $table->index(['uploaded_by', 'uploaded_by_type'], 'file_attachments_uploaded_by_morph_idx');
+            $table->index('upload_ip_address', 'file_attachments_upload_ip_idx');
+            $table->index('filename', 'file_attachments_filename_idx');
+            $table->index('disk', 'file_attachments_disk_idx');
+            $table->index('size', 'file_attachments_size_idx');
         });
     }
 

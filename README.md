@@ -133,3 +133,27 @@ For full documentation, visit [our documentation site](https://github.com/litepi
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
+
+---
+
+## 🏢 About
+
+This package is part of the **Litepie** ecosystem, developed by **Renfos Technologies**. 
+
+### Organization Structure
+- **Vendor:** Litepie
+- **Framework:** Lavalite
+- **Company:** Renfos Technologies
+
+### Links & Resources
+- 🌐 **Website:** [https://lavalite.org](https://lavalite.org)
+- 📚 **Documentation:** [https://docs.lavalite.org](https://docs.lavalite.org)
+- 💼 **Company:** [https://renfos.com](https://renfos.com)
+- 📧 **Support:** [support@lavalite.org](mailto:support@lavalite.org)
+
+---
+
+<div align="center">
+  <p><strong>Built with ❤️ by Renfos Technologies</strong></p>
+  <p><em>Empowering developers with robust Laravel solutions</em></p>
+</div>
