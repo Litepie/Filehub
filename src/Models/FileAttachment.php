@@ -320,7 +320,17 @@ class FileAttachment extends Model
 
     public function getDocumentTypeAttribute(): ?string
     {
-        return $this->metadata['document_type'] ?? $this->collection ?? null;
+        // First check metadata
+        if (isset($this->metadata['document_type'])) {
+            return $this->metadata['document_type'];
+        }
+        
+        // Then check collection field
+        if ($this->collection && $this->collection !== 'default') {
+            return $this->collection;
+        }
+        
+        return null;
     }
 
     public function getFileNameAttribute(): ?string
