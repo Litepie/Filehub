@@ -47,6 +47,13 @@ class FileAttachment extends Model
         'human_readable_size',
         'file_type',
         'uploader_name',
+        'title',
+        'description',
+        'document_type',
+        'file_name',
+        'file_size',
+        'file_size_human',
+        'uploaded_at',
     ];
 
     public function attachable(): MorphTo
@@ -299,5 +306,40 @@ class FileAttachment extends Model
     public function hasUploader(): bool
     {
         return !is_null($this->uploaded_by) && !is_null($this->uploaded_by_type);
+    }
+
+    public function getTitleAttribute(): ?string
+    {
+        return $this->metadata['title'] ?? $this->original_filename ?? null;
+    }
+
+    public function getDescriptionAttribute(): ?string
+    {
+        return $this->metadata['description'] ?? null;
+    }
+
+    public function getDocumentTypeAttribute(): ?string
+    {
+        return $this->metadata['document_type'] ?? $this->collection ?? null;
+    }
+
+    public function getFileNameAttribute(): ?string
+    {
+        return $this->original_filename;
+    }
+
+    public function getFileSizeAttribute(): int
+    {
+        return $this->size;
+    }
+
+    public function getFileSizeHumanAttribute(): string
+    {
+        return $this->human_readable_size;
+    }
+
+    public function getUploadedAtAttribute(): string
+    {
+        return $this->created_at ? $this->created_at->toIso8601String() : '';
     }
 }
