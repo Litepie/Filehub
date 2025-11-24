@@ -17,8 +17,14 @@ class FileAttachment extends Model
         'attachable_type',
         'attachable_id',
         'collection',
+        'document_type',
         'filename',
         'original_filename',
+        'title',
+        'description',
+        'document_number',
+        'issue_date',
+        'expiry_date',
         'path',
         'disk',
         'mime_type',
@@ -36,6 +42,8 @@ class FileAttachment extends Model
         'metadata' => 'array',
         'variants' => 'array',
         'size' => 'integer',
+        'issue_date' => 'date',
+        'expiry_date' => 'date',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
@@ -47,9 +55,6 @@ class FileAttachment extends Model
         'human_readable_size',
         'file_type',
         'uploader_name',
-        'title',
-        'description',
-        'document_type',
         'file_name',
         'file_size',
         'file_size_human',
@@ -308,26 +313,29 @@ class FileAttachment extends Model
         return !is_null($this->uploaded_by) && !is_null($this->uploaded_by_type);
     }
 
-    public function getTitleAttribute(): ?string
+    public function getTitleAttribute($value): ?string
     {
-        return $this->metadata['title'] ?? $this->original_filename ?? null;
+        // Return database value if exists, otherwise fall back to original_filename
+        return $value ?? $this->attributes['original_filename'] ?? null;
     }
 
-    public function getDescriptionAttribute(): ?string
+    public function getDescriptionAttribute($value): ?string
     {
-        return $this->metadata['description'] ?? null;
+        // Return database value
+        return $value;
     }
 
-    public function getDocumentTypeAttribute(): ?string
+    public function getDocumentTypeAttribute($value): ?string
     {
-        // First check metadata
-        if (isset($this->metadata['document_type'])) {
-            return $this->metadata['document_type'];
+        // Return database value if exists, otherwise fall back to collection
+        if ($value) {
+            return $value;
         }
         
-        // Then check collection field
-        if ($this->collection && $this->collection !== 'default') {
-            return $this->collection;
+        // Fall back to collection field if document_type is not set
+        $collection = $this->attributes['collection'] ?? null;
+        if ($collection && $collection !== 'default') {
+            return $collection;
         }
         
         return null;

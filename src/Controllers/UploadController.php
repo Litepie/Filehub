@@ -79,6 +79,12 @@ class UploadController extends Controller
                 'model_type' => 'required|string',
                 'model_id' => 'required|string',
                 'collection' => 'string|max:255',
+                'document_type' => 'string|max:255',
+                'title' => 'string|max:255',
+                'description' => 'string',
+                'document_number' => 'string|max:255',
+                'issue_date' => 'date',
+                'expiry_date' => 'date|after_or_equal:issue_date',
             ]);
 
             if ($validator->fails()) {
@@ -202,6 +208,26 @@ class UploadController extends Controller
             }
         }
 
+        // Add document metadata from request
+        if ($request->has('document_type')) {
+            $options['document_type'] = $request->get('document_type');
+        }
+        if ($request->has('title')) {
+            $options['title'] = $request->get('title');
+        }
+        if ($request->has('description')) {
+            $options['description'] = $request->get('description');
+        }
+        if ($request->has('document_number')) {
+            $options['document_number'] = $request->get('document_number');
+        }
+        if ($request->has('issue_date')) {
+            $options['issue_date'] = $request->get('issue_date');
+        }
+        if ($request->has('expiry_date')) {
+            $options['expiry_date'] = $request->get('expiry_date');
+        }
+
         return $options;
     }
 
@@ -209,16 +235,26 @@ class UploadController extends Controller
     {
         return [
             'id' => $attachment->id,
+            'title' => $attachment->title,
+            'description' => $attachment->description,
+            'document_type' => $attachment->document_type,
+            'document_number' => $attachment->document_number,
+            'issue_date' => $attachment->issue_date?->format('Y-m-d'),
+            'expiry_date' => $attachment->expiry_date?->format('Y-m-d'),
             'filename' => $attachment->filename,
             'original_filename' => $attachment->original_filename,
+            'file_name' => $attachment->file_name,
             'mime_type' => $attachment->mime_type,
             'size' => $attachment->size,
+            'file_size' => $attachment->file_size,
             'human_readable_size' => $attachment->human_readable_size,
+            'file_size_human' => $attachment->file_size_human,
             'file_type' => $attachment->file_type,
             'collection' => $attachment->collection,
             'url' => $attachment->url,
             'download_url' => $attachment->download_url,
             'variants' => $attachment->hasVariants() ? array_keys($attachment->getVariants()) : [],
+            'uploaded_at' => $attachment->uploaded_at,
             'created_at' => $attachment->created_at->toISOString(),
             'uploader' => [
                 'name' => $attachment->uploader_name,

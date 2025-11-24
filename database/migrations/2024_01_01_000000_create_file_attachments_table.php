@@ -16,8 +16,14 @@ return new class extends Migration
             $table->string('attachable_type');
             
             $table->string('collection')->default('default');
+            $table->string('document_type')->nullable();
             $table->string('filename');
             $table->string('original_filename');
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->string('document_number')->nullable();
+            $table->date('issue_date')->nullable();
+            $table->date('expiry_date')->nullable();
             $table->string('path');
             $table->string('disk');
             $table->string('mime_type');
@@ -35,6 +41,10 @@ return new class extends Migration
             // Explicit indexes with globally unique names
             $table->index(['attachable_type', 'attachable_id'], 'file_attachments_attachable_morph_idx');
             $table->index('collection', 'file_attachments_collection_idx');
+            $table->index('document_type', 'file_attachments_document_type_idx');
+            $table->index('document_number', 'file_attachments_document_number_idx');
+            $table->index('issue_date', 'file_attachments_issue_date_idx');
+            $table->index('expiry_date', 'file_attachments_expiry_date_idx');
             $table->index('mime_type', 'file_attachments_mime_type_idx');
             $table->index('created_at', 'file_attachments_created_at_idx');
             $table->index('file_hash', 'file_attachments_file_hash_idx');
