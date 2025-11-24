@@ -5,6 +5,10 @@ namespace Litepie\FileHub\Services;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver as GdDriver;
 use Intervention\Image\Drivers\Imagick\Driver as ImagickDriver;
+use Intervention\Image\Encoders\JpegEncoder;
+use Intervention\Image\Encoders\PngEncoder;
+use Intervention\Image\Encoders\GifEncoder;
+use Intervention\Image\Encoders\WebpEncoder;
 use Illuminate\Support\Facades\Storage;
 use Litepie\FileHub\Models\FileAttachment;
 use Litepie\FileHub\Exceptions\ImageProcessingException;
@@ -187,15 +191,15 @@ class ImageProcessor
      */
     private function encodeImage($image, string $mimeType, int $quality): string
     {
-        $format = match ($mimeType) {
-            'image/jpeg', 'image/jpg' => 'jpg',
-            'image/png' => 'png',
-            'image/gif' => 'gif',
-            'image/webp' => 'webp',
-            default => 'jpg',
+        $encoder = match ($mimeType) {
+            'image/jpeg', 'image/jpg' => new JpegEncoder($quality),
+            'image/png' => new PngEncoder(),
+            'image/gif' => new GifEncoder(),
+            'image/webp' => new WebpEncoder($quality),
+            default => new JpegEncoder($quality),
         };
 
-        return $image->encode(format: $format, quality: $quality)->toString();
+        return $image->encode($encoder)->toString();
     }
 
     /**

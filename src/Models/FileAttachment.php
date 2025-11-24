@@ -59,6 +59,18 @@ class FileAttachment extends Model
         return $this->morphTo('uploaded_by');
     }
 
+    /**
+     * Get the URL for the file (method version)
+     */
+    public function url(string $variant = null): string
+    {
+        if ($variant) {
+            return $this->getVariantUrl($variant) ?? $this->getUrlAttribute();
+        }
+        
+        return $this->getUrlAttribute();
+    }
+
     public function getUrlAttribute(): string
     {
         if (config('filehub.urls.signed', false)) {
